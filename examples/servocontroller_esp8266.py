@@ -3,8 +3,8 @@ import math
 import machine
 
 from servocontroller import ServoTask
-from servocontroller.servos import ServosGPIO
-from servocontroller.driver import DriverGPIO
+from servocontroller.servos.gpio import ServosGPIO
+from servocontroller.driver.gpio import DriverGPIO
 
 if __name__ == '__main__':
     driver = DriverGPIO()

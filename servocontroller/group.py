@@ -1,9 +1,12 @@
+import abc
+
+
 class ServoGroup:
     def __init__(self, *args, **kwargs):
         pass
 
-    def init(self):
-        pass
+    @abc.abstractmethod
+    def init(self): ...
 
-    def deinit(self):
-        pass
+    @abc.abstractmethod
+    def deinit(self): ...

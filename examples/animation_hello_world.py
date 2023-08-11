@@ -3,8 +3,9 @@ import math
 import machine
 
 from servocontroller import ServoTask, Animate, Step
-from servocontroller.servos import ServosGPIO
-from servocontroller.driver import DriverGPIO
+from servocontroller.animator import Animator
+from servocontroller.servos.gpio import ServosGPIO
+from servocontroller.driver.gpio import DriverGPIO
 
 
 def func(x):
@@ -20,15 +21,13 @@ if __name__ == '__main__':
     driver.attach(0, machine.Pin(23))
 
     servos = ServosGPIO(driver)
-    
+
+    animator = Animator()
+
     anim0 = Animate(0, servos)
     anim0.step.expr = func
     anim0.step.speed = 1.5
-    print(anim0.period)
-    # anim0.period = 15
-    print(anim0.period, anim0.running)
-    # anim0.servo.irq(lambda servo: print(f"Servo[{servo.index}] is running, and current degrees:", servo.read()))
-    
+
     try:
         while True:
             pass
